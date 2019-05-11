@@ -1,6 +1,6 @@
 import React from 'react';
 
-const edit-todo = () => {
+const EditTodo = () => {
   return (
     <div>
       <p>Welcome to Edit Todo Component!</p>
@@ -8,4 +8,4 @@ const edit-todo = () => {
   );
 };
 
-export default edit-todo;
+export default EditTodo;

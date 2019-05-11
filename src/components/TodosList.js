@@ -1,6 +1,6 @@
 import React from 'react';
 
-const todos-list = () => {
+const TodosList = () => {
   return (
     <div>
       <p>Welcome to Todos List Component!</p>
@@ -8,4 +8,4 @@ const todos-list = () => {
   );
 };
 
-export default todos-list;
+export default TodosList;
