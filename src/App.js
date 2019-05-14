@@ -13,7 +13,7 @@ function App() {
     <Router>
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand">
+          <a className="navbar-brand" href="/">
             <img src={logo} width="30" height="30" alt="Todo list icon" />
           </a>
           <Link to="/" className="navbar-brand">
