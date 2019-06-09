@@ -29,6 +29,48 @@ export default class EditTodo extends Component {
       });
   }
 
+  onChangeTodoDescription(e) {
+    this.setState({
+      todo_description: e.target.value
+    });
+  }
+
+  onChangeTodoResponsible(e) {
+    this.setState({
+      todo_responsible: e.target.value
+    });
+  }
+
+  onChangeTodoPriority(e) {
+    this.setState({
+      todo_priority: e.target.value
+    });
+  }
+
+  onChangeTodoCompleted(e) {
+    this.setState({
+      todo_completed: !this.state.todo_comleted
+    });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    const obj = {
+      todo_description: this.state.todo_description,
+      todo_responsible: this.state.todo_responsible,
+      todo_priority: this.state.todo_priority,
+      todo_comleted: this.state.todo_completed
+    };
+    axios
+      .post(
+        "http://localhost:4000/todos/update/" + this.props.match.params.id,
+        obj
+      )
+      .then(res => console.log(res.data));
+
+    this.props.history.push("/");
+  }
+
   render() {
     return (
       <div>
@@ -88,6 +130,28 @@ export default class EditTodo extends Component {
                 onChange={this.onChangeTodoPriority}
               />
               <label className="form-check-label">High</label>
+            </div>
+            <div className="form-check">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="completedCheckbox"
+                name="completedCheckbox"
+                onChange={this.onChangeTodoCompleted}
+                checked={this.state.todo_completed}
+                value={this.state.todo_completed}
+              />
+              <label className="form-check-label" htmlFor="completedCheckbox">
+                Completed
+              </label>
+            </div>
+            <br />
+            <div className="form-group">
+              <input
+                type="submit"
+                value="Update Todo"
+                className="btn btn-primary"
+              />
             </div>
           </div>
         </form>
